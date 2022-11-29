@@ -12,10 +12,11 @@ public class Autor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String nome;
     private String sobrenome;
     private String nacionalidade;
-    private Long id;
+    
 
     public Autor(String nome, String sobrenome, String nacionalidade) {
         this.nome = nome;

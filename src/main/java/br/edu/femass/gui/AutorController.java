@@ -12,6 +12,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
@@ -19,8 +20,8 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
 public class AutorController implements Initializable {
-    
-    @FXML   
+
+    @FXML
     private TextField TxtNome;
 
     @FXML
@@ -32,50 +33,104 @@ public class AutorController implements Initializable {
     @FXML
     private ListView<Autor> LstAutor;
 
+    @FXML
+    private Button BtnIncluir;
+
+    @FXML
+    private Button BtnAlterar;
+
+    @FXML
+    private Button BtnExcluir;
+
+    @FXML
+    private Button BtnGravar;
+
     private DaoAutor dao = new DaoAutor();
 
-    //private Autor autor;
+    private Autor autor;
 
-    private Boolean inserindo;
-    
+    private Boolean incluindo;
+
     @FXML
     private void gravar_click(ActionEvent event) {
 
-        Autor autor = new Autor(
-            TxtNome.getText(),
-            TxtSobrenome.getText(), 
-            TxtNacionalidade.getText());
-
+        
+        autor.setNome(TxtNome.getText());
+        autor.setSobrenome(TxtSobrenome.getText()); 
+        autor.setNacionalidade(TxtNacionalidade.getText());
          
-         dao.inserir(autor);
-         System.out.println(autor.getId());
-
-
-    } 
-    
-    @FXML
-    private void LstAutor_KeyPressed(KeyEvent event){
-
+        if(incluindo){
+            dao.inserir(autor);
+        }else{
+            dao.alterar(autor);
+        }
+        preencherLista();
+        editar(false);
     }
-   
+
     @FXML
-    private void LstAutor_MouseClicked (MouseEvent event){
+    private void incluir_click(ActionEvent event) {
+        editar(true);
+        incluindo = true;
+
+        autor = new Autor();
+        TxtNome.setText("");
+        TxtSobrenome.setText("");
+        TxtNacionalidade.setText("");
+        TxtNome.requestFocus();
+    }
+
+    @FXML
+    private void alterar_click(ActionEvent event) {
+        editar(true);
+        incluindo = false;
+    }
+
+    @FXML
+    private void excluir_click(ActionEvent event) {
+        dao.apagar(autor);
+        preencherLista();
+    }
+
+    @FXML
+    private void LstAutor_KeyPressed(KeyEvent event) {
         exibirDados();
     }
 
-    private void exibirDados(){
-        Autor autor = LstAutor.getSelectionModel().getSelectedItem();
+    @FXML
+    private void LstAutor_MouseClicked(MouseEvent event) {
+        exibirDados();
+    }
 
-        if(autor==null) return;
+    private void editar(boolean habilitar) {
+        LstAutor.setDisable(habilitar);
+        TxtNome.setDisable(!habilitar);
+        TxtSobrenome.setDisable(!habilitar);
+        TxtNacionalidade.setDisable(!habilitar);
+        BtnGravar.setDisable(!habilitar);
+        BtnAlterar.setDisable(habilitar);
+        BtnIncluir.setDisable(habilitar);
+        BtnExcluir.setDisable(habilitar);
+    }
+
+    private void exibirDados() {
+        this.autor = LstAutor.getSelectionModel().getSelectedItem();
+
+        if (autor == null)
+            return;
 
         TxtNome.setText(autor.getNome());
         TxtSobrenome.setText(autor.getSobrenome());
         TxtNacionalidade.setText(autor.getNacionalidade());
     }
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
+
+    private void preencherLista(){
         List<Autor> autores = dao.buscarTodos();
         ObservableList<Autor> data = FXCollections.observableArrayList(autores);
         LstAutor.setItems(data);
-    }    
+    }
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        preencherLista();
+    }
 }

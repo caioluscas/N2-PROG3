@@ -3,23 +3,40 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.femass.gui.AlunoController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="506.0" prefWidth="759.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.femass.gui.AlunoController">
    <children>
-      <ListView fx:id="LstAluno" layoutX="14.0" layoutY="14.0" onKeyPressed="#LstAluno_KeyPressed" onMouseClicked="#LstAluno_MouseClicked" prefHeight="336.0" prefWidth="200.0" />
-      <Label layoutX="240.0" layoutY="45.0" text="Nome" />
-      <TextField fx:id="TxtNome" disable="true" layoutX="359.0" layoutY="41.0" />
-      <Button fx:id="BtnGravar" disable="true" layoutX="482.0" layoutY="298.0" mnemonicParsing="false" onAction="#gravar_click" text="Gravar" />
-      <TextField fx:id="TxtEndereco" disable="true" layoutX="360.0" layoutY="91.0" />
-      <Label layoutX="240.0" layoutY="95.0" text="Endereço" />
-      <Button fx:id="BtnIncluir" layoutX="23.0" layoutY="361.0" mnemonicParsing="false" onAction="#incluir_click" text="Incluir" />
-      <Button fx:id="BtnAlterar" layoutX="88.0" layoutY="361.0" mnemonicParsing="false" onAction="#alterar_click" text="Alterar" />
-      <Button fx:id="BtnExcluir" layoutX="162.0" layoutY="361.0" mnemonicParsing="false" onAction="#excluir_click" text="Excluir" />
-      <Label layoutX="242.0" layoutY="135.0" text="Telefone" />
-      <TextField fx:id="TxtTelefone" disable="true" layoutX="360.0" layoutY="131.0" />
-      <Label layoutX="240.0" layoutY="179.0" text="Matricula" />
-      <TextField fx:id="TxtMatricula" disable="true" layoutX="360.0" layoutY="175.0" />
+      <Label layoutX="516.0" layoutY="119.0" text="Nome" />
+      <TextField fx:id="TxtNome" disable="true" layoutX="582.0" layoutY="115.0" />
+      <Button fx:id="BtnGravar" disable="true" layoutX="583.0" layoutY="274.0" mnemonicParsing="false" onAction="#gravar_click" prefHeight="25.0" prefWidth="149.0" text="Gravar" />
+      <TextField fx:id="TxtEndereco" disable="true" layoutX="583.0" layoutY="155.0" />
+      <Label layoutX="516.0" layoutY="159.0" text="Endereço" />
+      <Button fx:id="BtnIncluir" layoutX="152.0" layoutY="443.0" mnemonicParsing="false" onAction="#incluir_click" prefHeight="25.0" prefWidth="115.0" text="Incluir" />
+      <Button fx:id="BtnAlterar" layoutX="14.0" layoutY="443.0" mnemonicParsing="false" onAction="#alterar_click" prefHeight="25.0" prefWidth="115.0" text="Alterar" />
+      <Button fx:id="BtnExcluir" layoutX="306.0" layoutY="443.0" mnemonicParsing="false" onAction="#excluir_click" prefHeight="25.0" prefWidth="115.0" text="Excluir" />
+      <Label layoutX="518.0" layoutY="199.0" text="Telefone" />
+      <TextField fx:id="TxtTelefone" disable="true" layoutX="583.0" layoutY="195.0" />
+      <Label layoutX="516.0" layoutY="235.0" text="Matricula" />
+      <TextField fx:id="TxtMatricula" disable="true" layoutX="583.0" layoutY="231.0" />
+      <TableView fx:id="tableAluno" layoutX="14.0" layoutY="291.0" prefHeight="142.0" prefWidth="404.0">
+        <columns>
+          <TableColumn fx:id="colNome" prefWidth="75.0" text="Nome" />
+          <TableColumn fx:id="colEndereco" prefWidth="110.4000244140625" text="Endereço" />
+            <TableColumn fx:id="colTelefone" prefWidth="76.0" text="Telefone" />
+            <TableColumn fx:id="colMatricula" prefWidth="101.60003662109375" text="Matrícula" />
+            <TableColumn fx:id="colid" prefWidth="38.39996337890625" text="ID" />
+        </columns>
+      </TableView>
+      <ListView fx:id="LstAluno" layoutX="13.0" layoutY="102.0" prefHeight="174.0" prefWidth="404.0" />
+      <Label layoutX="332.0" layoutY="14.0" text="Aluno">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

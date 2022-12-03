@@ -11,7 +11,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
@@ -21,7 +24,7 @@ public class AlunoController implements Initializable {
     private TextField TxtNome;
 
     @FXML
-    private TextField TxtEndererco;
+    private TextField TxtEndereco;
 
     @FXML
     private TextField TxtTelefone;
@@ -44,6 +47,24 @@ public class AlunoController implements Initializable {
     @FXML
     private Button BtnGravar;
 
+    @FXML
+    private TableView <Aluno> tableAluno = new TableView<Aluno>();
+
+    @FXML
+    private TableColumn <Aluno, Long> colID = new TableColumn<>();
+
+    @FXML
+    private TableColumn <Aluno, String> colNome = new TableColumn<>();
+
+    @FXML
+    private TableColumn <Aluno, String> colEndereco = new TableColumn<>();
+
+    @FXML
+    private TableColumn <Aluno, String> colTelefone = new TableColumn<>();
+
+    @FXML
+    private TableColumn <Aluno, String> colMatricula = new TableColumn<>();
+
     private DaoAluno dao = new DaoAluno();
 
     private Aluno aluno;
@@ -55,7 +76,7 @@ public class AlunoController implements Initializable {
 
         
         aluno.setNome(TxtNome.getText());
-        aluno.setEndereco(TxtEndererco.getText()); 
+        aluno.setEndereco(TxtEndereco.getText()); 
         aluno.setTelefone(TxtTelefone.getText());
         aluno.setMatricula(TxtMatricula.getText());
          
@@ -65,6 +86,7 @@ public class AlunoController implements Initializable {
             dao.alterar(aluno);
         }   
         preencherLista();
+        preencherTabela();
         editar(false);
     }
 
@@ -75,7 +97,7 @@ public class AlunoController implements Initializable {
 
         aluno = new Aluno();
         TxtNome.setText("");
-        TxtEndererco.setText("");
+        TxtEndereco.setText("");
         TxtTelefone.setText("");
         TxtMatricula.setText("");
         TxtNome.requestFocus();
@@ -91,6 +113,7 @@ public class AlunoController implements Initializable {
     private void excluir_click(ActionEvent event) {
         dao.apagar(aluno);
         preencherLista();
+        preencherTabela();
     }
 
     @FXML
@@ -106,7 +129,7 @@ public class AlunoController implements Initializable {
     private void editar(boolean habilitar) {
         LstAluno.setDisable(habilitar);
         TxtNome.setDisable(!habilitar);
-        TxtEndererco.setDisable(!habilitar);
+        TxtEndereco.setDisable(!habilitar);
         TxtTelefone.setDisable(!habilitar);
         TxtMatricula.setDisable(!habilitar);
         BtnGravar.setDisable(!habilitar);
@@ -122,7 +145,7 @@ public class AlunoController implements Initializable {
             return;
 
         TxtNome.setText(aluno.getNome());
-        TxtEndererco.setText(aluno.getEndereco());
+        TxtEndereco.setText(aluno.getEndereco());
         TxtTelefone.setText(aluno.getTelefone());
         TxtMatricula.setText(aluno.getMatricula());
     }
@@ -133,8 +156,20 @@ public class AlunoController implements Initializable {
         LstAluno.setItems(data);
     }
 
+    private void preencherTabela(){
+        List<Aluno> alunos = dao.buscarTodos();
+        ObservableList<Aluno> data = FXCollections.observableArrayList(alunos);
+        tableAluno.setItems(data);
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        colID.setCellValueFactory(new PropertyValueFactory<Aluno,Long>("ID"));
+        colNome.setCellValueFactory(new PropertyValueFactory<Aluno,String>("nome"));
+        colEndereco.setCellValueFactory(new PropertyValueFactory<Aluno,String>("endereco"));
+        colTelefone.setCellValueFactory(new PropertyValueFactory<Aluno,String>("telefone"));
+        colMatricula.setCellValueFactory(new PropertyValueFactory<Aluno,String>("matricula"));
         preencherLista();
+        preencherTabela();
     }
 }

@@ -40,7 +40,7 @@ public class MainController implements Initializable {
             scene.getRoot().setStyle("-fx-font-family: 'serif'");
 
             Stage stage = new Stage();
-            stage.setTitle("Professor");
+            stage.setTitle("Atendente");
             stage.setScene(scene);
             stage.show();
         } catch(Exception e){

@@ -3,10 +3,10 @@ package br.edu.femass.Model;
 import javax.persistence.Entity;
 
 
+
 @Entity
 public class Aluno extends Leitor{
 
-    
     private String matricula;
 
     public Aluno(){

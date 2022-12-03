@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="273.0" prefWidth="384.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.femass.gui.MainBibliotecarioController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="273.0" prefWidth="384.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.femass.gui.MainBibliotecarioController">
    <children>
-      <Button layoutX="137.0" layoutY="64.0" mnemonicParsing="false" onAction="#btnLivro" text="Cadastro de Livro" />
-      <Button layoutX="126.0" layoutY="124.0" mnemonicParsing="false" onAction="#btnExemplar" text="Cadastro de Exemplar" />
-      <Button layoutX="135.0" layoutY="186.0" mnemonicParsing="false" onAction="#btnAutor" text="Cadastro de Autor" />
+      <Button layoutX="127.0" layoutY="100.0" mnemonicParsing="false" onAction="#btnLivro" prefHeight="25.0" prefWidth="131.0" text="Cadastro de Livro" />
+      <Button layoutX="126.0" layoutY="149.0" mnemonicParsing="false" onAction="#btnExemplar" text="Cadastro de Exemplar" />
+      <Button layoutX="125.0" layoutY="199.0" mnemonicParsing="false" onAction="#btnAutor" prefHeight="25.0" prefWidth="131.0" text="Cadastro de Autor" />
+      <Label layoutX="95.0" layoutY="14.0" text="Bibliotecário">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

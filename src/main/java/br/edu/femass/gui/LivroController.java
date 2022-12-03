@@ -168,7 +168,7 @@ public class LivroController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        colID.setCellValueFactory(new PropertyValueFactory<Livro,Long>("id"));
+        colID.setCellValueFactory(new PropertyValueFactory<Livro,Long>("ID"));
         colTitulo.setCellValueFactory(new PropertyValueFactory<Livro,String>("titulo"));
         colAutor.setCellValueFactory(new PropertyValueFactory<Autor,String>("autor"));
         preencherLista();

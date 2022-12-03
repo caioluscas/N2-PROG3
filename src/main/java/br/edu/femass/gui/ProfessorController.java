@@ -21,7 +21,7 @@ public class ProfessorController implements Initializable {
     private TextField TxtNome;
 
     @FXML
-    private TextField TxtEndererco;
+    private TextField TxtEndereco;
 
     @FXML
     private TextField TxtTelefone;
@@ -53,9 +53,8 @@ public class ProfessorController implements Initializable {
     @FXML
     private void gravar_click(ActionEvent event) {
 
-        
         professor.setNome(TxtNome.getText());
-        professor.setEndereco(TxtEndererco.getText()); 
+        professor.setEndereco(TxtEndereco.getText()); 
         professor.setTelefone(TxtTelefone.getText());
         professor.setDisciplina(TxtDisciplina.getText());
          
@@ -75,7 +74,7 @@ public class ProfessorController implements Initializable {
 
         professor = new Professor();
         TxtNome.setText("");
-        TxtEndererco.setText("");
+        TxtEndereco.setText("");
         TxtTelefone.setText("");
         TxtDisciplina.setText("");
         TxtNome.requestFocus();
@@ -106,7 +105,7 @@ public class ProfessorController implements Initializable {
     private void editar(boolean habilitar) {
         LstProfessor.setDisable(habilitar);
         TxtNome.setDisable(!habilitar);
-        TxtEndererco.setDisable(!habilitar);
+        TxtEndereco.setDisable(!habilitar);
         TxtTelefone.setDisable(!habilitar);
         TxtDisciplina.setDisable(!habilitar);
         BtnGravar.setDisable(!habilitar);
@@ -122,7 +121,7 @@ public class ProfessorController implements Initializable {
             return;
 
         TxtNome.setText(professor.getNome());
-        TxtEndererco.setText(professor.getEndereco());
+        TxtEndereco.setText(professor.getEndereco());
         TxtTelefone.setText(professor.getTelefone());
         TxtDisciplina.setText(professor.getDisciplina());
     }

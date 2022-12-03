@@ -6,7 +6,7 @@ import br.edu.femass.Model.Exemplar;
 public class DaoExemplar extends Dao<Exemplar>{
 
     public List<Exemplar> buscarTodos(){
-        return em.createQuery("select a from Exemplar a order by a.nome").getResultList();
+        return em.createQuery("select a from Exemplar a order by a.id").getResultList();
 
     }
 

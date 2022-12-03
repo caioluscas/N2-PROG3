@@ -5,8 +5,8 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="273.0" prefWidth="384.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.femass.gui.MainBibliotecarioController">
    <children>
-      <Button layoutX="134.0" layoutY="62.0" mnemonicParsing="false" onAction="#btnLivro" text="Cadastro de Livro" />
-      <Button layoutX="122.0" layoutY="124.0" mnemonicParsing="false" onAction="#btnExemplar" text="Cadastro de Exemplar" />
-      <Button layoutX="140.0" layoutY="187.0" mnemonicParsing="false" onAction="#btnAutor" text="Cadastro Autor" />
+      <Button layoutX="137.0" layoutY="64.0" mnemonicParsing="false" onAction="#btnLivro" text="Cadastro de Livro" />
+      <Button layoutX="126.0" layoutY="124.0" mnemonicParsing="false" onAction="#btnExemplar" text="Cadastro de Exemplar" />
+      <Button layoutX="135.0" layoutY="186.0" mnemonicParsing="false" onAction="#btnAutor" text="Cadastro de Autor" />
    </children>
 </Pane>

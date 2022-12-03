@@ -9,7 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class MainBiblliotecarioController implements Initializable {
+public class MainBibliotecarioController implements Initializable {
 
     @FXML
     private void btnLivro(ActionEvent event) {
@@ -27,7 +27,6 @@ public class MainBiblliotecarioController implements Initializable {
         } catch(Exception e){
             System.out.println(e.getMessage());
         }
-        
     }
 
     @FXML

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.femass.gui.ExemplarController">
+   <children>
+      <Button fx:id="BtnGravar" disable="true" layoutX="505.0" layoutY="361.0" mnemonicParsing="false" onAction="#gravar_click" text="Gravar" />
+      <Button fx:id="BtnEmprestimo" layoutX="225.0" layoutY="188.0" mnemonicParsing="false" onAction="#emprestimo_click" prefHeight="25.0" prefWidth="150.0" text="Salvar Empréstimo" />
+      <Button fx:id="BtnDevolucao" layoutX="406.0" layoutY="188.0" mnemonicParsing="false" onAction="#devolucao_click" prefHeight="25.0" prefWidth="150.0" text="Salvar Devolução" />
+      <Label layoutX="207.0" layoutY="29.0" text="Empréstimo">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cboLeitor" layoutX="39.0" layoutY="152.0" prefWidth="150.0" />
+      <Label layoutX="73.0" layoutY="117.0" text="Leitores">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="230.0" layoutY="117.0" text="Exemplares">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cboExemplar" layoutX="225.0" layoutY="152.0" prefWidth="150.0" />
+      <Label layoutX="410.0" layoutY="117.0" text="Devolução">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cboDevolucao" layoutX="406.0" layoutY="152.0" prefWidth="150.0" />
+   </children>
+</Pane>

@@ -1,13 +1,12 @@
 package br.edu.femass.Model;
 import java.time.LocalDateTime;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+
 
 @Entity
 public class Exemplar {
@@ -16,16 +15,17 @@ public class Exemplar {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private LocalDateTime dataAquisicao;
-
     @ManyToOne(cascade = CascadeType.ALL)
     private Livro livro;
 
-    public Exemplar(LocalDateTime dataAquisicao, Livro livro) {
-        this.dataAquisicao = dataAquisicao;
-        this.livro = livro;
-    }
+
 
     public Exemplar(){}
+
+    public Exemplar( Livro livro) {
+        this.dataAquisicao = LocalDateTime.now();
+        this.livro = livro;
+    }
 
     public LocalDateTime getDataAquisicao() {
         return dataAquisicao;
@@ -51,6 +51,9 @@ public class Exemplar {
         this.id = id;
     }
 
-    
+    @Override
+    public String toString() {
+        return ("Exemplar " + this.getLivro());
+    }    
     
 }

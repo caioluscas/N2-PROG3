@@ -72,7 +72,7 @@ public class ExemplarController implements Initializable {
         }
 
         preencherTabela();
-        editar(false);
+        editar(false); 
     }
 
     @FXML

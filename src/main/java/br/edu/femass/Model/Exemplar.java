@@ -1,5 +1,5 @@
 package br.edu.femass.Model;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,24 +14,26 @@ public class Exemplar {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private LocalDateTime dataAquisicao;
+    private LocalDate dataAquisicao;
     @ManyToOne(cascade = CascadeType.ALL)
     private Livro livro;
 
 
 
-    public Exemplar(){}
+    public Exemplar(){
+        this.dataAquisicao = LocalDate.now();
+    }
 
     public Exemplar( Livro livro) {
-        this.dataAquisicao = LocalDateTime.now();
+        this.dataAquisicao = LocalDate.now();
         this.livro = livro;
     }
 
-    public LocalDateTime getDataAquisicao() {
+    public LocalDate getDataAquisicao() {
         return dataAquisicao;
     }
 
-    public void setDataAquisicao(LocalDateTime dataAquisicao) {
+    public void setDataAquisicao(LocalDate dataAquisicao) {
         this.dataAquisicao = dataAquisicao;
     }
 

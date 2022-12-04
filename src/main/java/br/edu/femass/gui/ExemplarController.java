@@ -3,9 +3,6 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
-
-import org.hibernate.procedure.ProcedureCallMemento;
-
 import br.edu.femass.Model.Autor;
 import br.edu.femass.Model.Exemplar;
 import br.edu.femass.Model.Livro;
@@ -18,20 +15,21 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
+
 
 public class ExemplarController implements Initializable {
 
     @FXML
-    private Button btnRemover;
+    private Button BtnExcluir;
 
     @FXML
-    private Button btnAdicionar;
+    private Button BtnIncluir;
+
+    @FXML
+    private Button BtnGravar;
 
     @FXML
     private TableView<Exemplar> tableExemplar = new TableView<Exemplar>();
@@ -63,7 +61,7 @@ public class ExemplarController implements Initializable {
 
 
     @FXML
-    private void adicionar_click(ActionEvent event) {
+    private void gravar_click(ActionEvent event) {
         exemplar.setLivro(cboLivro.getSelectionModel().getSelectedItem());
         if (incluindo) {
             daoExemplar.inserir(exemplar);
@@ -72,7 +70,7 @@ public class ExemplarController implements Initializable {
         }
 
         preencherTabela();
-        editar(false); 
+        editar(false);
     }
 
     @FXML
@@ -87,16 +85,25 @@ public class ExemplarController implements Initializable {
     }
     
     @FXML
-    private void remover_click(ActionEvent event) {
+    private void excluir_click(ActionEvent event) {
         daoExemplar.apagar(exemplar);
         preencherTabela();
     }
 
+    @FXML
+    private void alterar_click(ActionEvent event) {
+        editar(true);
+        preencherCombo();
+        preencherTabela();
+        incluindo = false;
+    }
+
     private void editar(boolean habilitar) {
-        tableExemplar.setDisable(habilitar);
+        //tableExemplar.setDisable(habilitar);
         cboLivro.setDisable(!habilitar);
-        btnAdicionar.setDisable(habilitar);
-        btnRemover.setDisable(habilitar);
+        BtnGravar.setDisable(!habilitar);
+        BtnExcluir.setDisable(habilitar);
+        BtnIncluir.setDisable(habilitar);
     }
 
     private void preencherTabela(){

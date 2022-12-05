@@ -15,8 +15,10 @@ public class Exemplar {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private LocalDate dataAquisicao;
+    
     @ManyToOne(cascade = CascadeType.ALL)
     private Livro livro;
+
 
 
 
@@ -27,6 +29,7 @@ public class Exemplar {
     public Exemplar( Livro livro) {
         this.dataAquisicao = LocalDate.now();
         this.livro = livro;
+        
        
     }
 

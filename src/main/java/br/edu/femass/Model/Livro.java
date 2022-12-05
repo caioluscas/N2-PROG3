@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 public class Livro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected Long id;
+    private Long id;
     protected String titulo;
 
     @ManyToOne(cascade = CascadeType.ALL)

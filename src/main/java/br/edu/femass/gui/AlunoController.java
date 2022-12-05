@@ -164,7 +164,7 @@ public class AlunoController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        colID.setCellValueFactory(new PropertyValueFactory<Aluno,Long>("ID"));
+        colID.setCellValueFactory(new PropertyValueFactory<Aluno,Long>("id"));
         colNome.setCellValueFactory(new PropertyValueFactory<Aluno,String>("nome"));
         colEndereco.setCellValueFactory(new PropertyValueFactory<Aluno,String>("endereco"));
         colTelefone.setCellValueFactory(new PropertyValueFactory<Aluno,String>("telefone"));

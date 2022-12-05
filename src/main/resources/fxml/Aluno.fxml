@@ -8,7 +8,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="506.0" prefWidth="759.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.femass.gui.AlunoController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="506.0" prefWidth="759.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.femass.gui.AlunoController">
    <children>
       <Label layoutX="498.0" layoutY="96.0" text="Nome" />
       <TextField fx:id="TxtNome" disable="true" layoutX="564.0" layoutY="92.0" />
@@ -27,8 +27,8 @@
           <TableColumn fx:id="colNome" prefWidth="75.0" text="Nome" />
           <TableColumn fx:id="colEndereco" prefWidth="110.4000244140625" text="Endereço" />
             <TableColumn fx:id="colTelefone" prefWidth="76.0" text="Telefone" />
+            <TableColumn fx:id="colID" prefWidth="38.39996337890625" text="ID" />
             <TableColumn fx:id="colMatricula" prefWidth="101.60003662109375" text="Matrícula" />
-            <TableColumn fx:id="colid" prefWidth="38.39996337890625" text="ID" />
         </columns>
       </TableView>
       <ListView fx:id="LstAluno" layoutX="13.0" layoutY="43.0" prefHeight="233.0" prefWidth="404.0" />

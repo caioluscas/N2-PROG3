@@ -53,7 +53,7 @@ public class MainAtendenteController implements Initializable {
     @FXML
     private void btnEmprestimo(ActionEvent event) {
         try{
-            Parent root = FXMLLoader.load(getClass().getResource("/fxml/Exemplar.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/fxml/Emprestimo.fxml"));
         
             Scene scene = new Scene(root);
             scene.getStylesheets().add("/styles/Styles.css");

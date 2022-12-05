@@ -1,10 +1,13 @@
 package br.edu.femass.Model;
+import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
 
 @Entity
 public class Livro {
@@ -16,12 +19,16 @@ public class Livro {
     @ManyToOne(cascade = CascadeType.ALL)
     private Autor autor;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Exemplar> exemplares;
+
     public Livro(String titulo, Autor autor) {
         this.titulo = titulo;
         this.autor = autor;
     }
 
     public Livro(){}
+
 
     public String getTitulo() {
         return titulo;

@@ -160,7 +160,7 @@ public class EmprestimoController implements Initializable {
         colIDEmprestimo.setCellValueFactory(new PropertyValueFactory<Emprestimo,Long>("id"));
         colLeitorEmprestimo.setCellValueFactory(new PropertyValueFactory<Leitor,String>("leitor"));
         colExemplarEmprestimo.setCellValueFactory(new PropertyValueFactory<Exemplar,String>("exemplar"));
-        colDataEmprestimo.setCellValueFactory(new PropertyValueFactory<Emprestimo,LocalDate>("dataPrevisaoDevolucao"));
+        colDataEmprestimo.setCellValueFactory(new PropertyValueFactory<Emprestimo,LocalDate>("dataEmprestimo"));
         
         colID.setCellValueFactory(new PropertyValueFactory<Exemplar,Long>("id"));
         colExemplar.setCellValueFactory(new PropertyValueFactory<Livro,String>("livro"));

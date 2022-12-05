@@ -17,7 +17,7 @@ public class Emprestimo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+    private LocalDate dataEmprestimo;
     private LocalDate dataPrevistaDevolucao;
     private LocalDate dataDevolucao;
 
@@ -27,13 +27,16 @@ public class Emprestimo {
     @ManyToOne(cascade = CascadeType.ALL)
     private Leitor leitor;
 
-    public Emprestimo(){}
+    public Emprestimo(){
+        this.dataEmprestimo = LocalDate.now();
+    }
 
     public Emprestimo(Exemplar exemplar, Leitor leitor) {
         this.dataPrevistaDevolucao = LocalDate.now().plusDays(leitor.getPrazoMaximoDevolucao());
-        this.dataDevolucao = LocalDate.now();
+        //this.dataDevolucao = LocalDate.now();
         this.exemplar = exemplar;
         this.leitor = leitor;
+        this.dataEmprestimo = LocalDate.now();
     }
 
     public Long getId() {

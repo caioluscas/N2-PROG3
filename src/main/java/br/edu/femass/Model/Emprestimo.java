@@ -6,9 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-
-import net.bytebuddy.asm.Advice.Local;
 
 
 @Entity
@@ -79,10 +76,14 @@ public class Emprestimo {
         this.leitor = leitor;
     }
 
-    
-   
+    public LocalDate getDataEmprestimo() {
+        return dataEmprestimo;
+    }
 
-    
+    public void setDataEmprestimo(LocalDate dataEmprestimo) {
+        this.dataEmprestimo = dataEmprestimo;
+    }
+
 
 
    

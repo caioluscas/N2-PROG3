@@ -3,7 +3,6 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
-
 import br.edu.femass.Model.Aluno;
 import br.edu.femass.Model.Emprestimo;
 import br.edu.femass.Model.Exemplar;
@@ -22,13 +21,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
-
 public class EmprestimoController implements Initializable {
 
     @FXML
@@ -36,6 +31,9 @@ public class EmprestimoController implements Initializable {
 
     @FXML
     private Button BtnProfessor;
+
+    @FXML
+    private Button BtnDevolucao;
 
     @FXML
     private TableView<Emprestimo> tableEmprestimo = new TableView<Emprestimo>();
@@ -65,11 +63,13 @@ public class EmprestimoController implements Initializable {
     private TableColumn<Exemplar, LocalDate> colData;
 
     @FXML
+    private TableColumn<Emprestimo, LocalDate> colDevolucao;
+
+    @FXML
     private ComboBox<Aluno> cboAluno;
 
     @FXML
     private ComboBox<Professor> cboProfessor;
-
 
     private DaoLivro daoLivro = new DaoLivro();
 
@@ -125,6 +125,14 @@ public class EmprestimoController implements Initializable {
         preencherTabela();
     }
 
+    @FXML
+    private void devolucao_click(ActionEvent event) {
+        emprestimo = tableEmprestimo.getSelectionModel().getSelectedItem();
+        emprestimo.setDataDevolucao(LocalDate.now());
+        daoEmprestimo.alterar(emprestimo);
+        preencherTabela();
+    }
+
     private void preencherCombo() {
         List<Aluno> alunos = daoAluno.buscarTodos();
 
@@ -149,6 +157,7 @@ public class EmprestimoController implements Initializable {
         
         ObservableList<Emprestimo> dataEmprestimo = FXCollections.observableArrayList(emprestimos);
         tableEmprestimo.setItems(dataEmprestimo);
+        tableEmprestimo.refresh();
     }
 
 
@@ -161,6 +170,7 @@ public class EmprestimoController implements Initializable {
         colLeitorEmprestimo.setCellValueFactory(new PropertyValueFactory<Leitor,String>("leitor"));
         colExemplarEmprestimo.setCellValueFactory(new PropertyValueFactory<Exemplar,String>("exemplar"));
         colDataEmprestimo.setCellValueFactory(new PropertyValueFactory<Emprestimo,LocalDate>("dataEmprestimo"));
+        colDevolucao.setCellValueFactory(new PropertyValueFactory<Emprestimo,LocalDate>("dataDevolucao"));
         
         colID.setCellValueFactory(new PropertyValueFactory<Exemplar,Long>("id"));
         colExemplar.setCellValueFactory(new PropertyValueFactory<Livro,String>("livro"));

@@ -49,7 +49,7 @@ public class LivroController implements Initializable {
     private TableView <Livro> tableLivro = new TableView<Livro>();
 
     @FXML
-    private TableColumn <Livro, Long> colID = new TableColumn<>();
+    private TableColumn<Livro,Long> colID = new TableColumn<>();
 
     @FXML
     private TableColumn <Livro, String> colTitulo = new TableColumn<>();
@@ -168,7 +168,7 @@ public class LivroController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        colID.setCellValueFactory(new PropertyValueFactory<Livro,Long>("id"));
+        colID.setCellValueFactory(new PropertyValueFactory<Livro,Long>("ID"));
         colTitulo.setCellValueFactory(new PropertyValueFactory<Livro,String>("titulo"));
         colAutor.setCellValueFactory(new PropertyValueFactory<Autor,String>("autor"));
         preencherLista();
